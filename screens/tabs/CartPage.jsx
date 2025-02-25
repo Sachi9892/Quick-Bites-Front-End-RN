@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { fetchCart, clearCart } from "../../services/CartService";
 import { useCart } from "../../context/CartContext";
+import { useNavigation } from "@react-navigation/native";
 
 const CartPage = () => {
+
+    const navigation = useNavigation();
+
     const { cartCount, setCartCount } = useCart();
     const [cart, setCart] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -56,8 +60,13 @@ const CartPage = () => {
                 </TouchableOpacity>
 
                 {/* Order Now Button */}
-                <TouchableOpacity style={styles.orderNowButton}>
+                <TouchableOpacity style={styles.orderNowButton} onPress={() => navigation.navigate("Checkout", { cart })}>
                     <Text style={styles.buttonText}>Order Now</Text>
+                </TouchableOpacity>
+
+                {/* Schedule Order Button */}
+                <TouchableOpacity style={styles.orderNowButton} onPress={() => navigation.navigate("Checkout", { cart, isScheduled: true })}>
+                    <Text style={styles.buttonText}>Schedule Order</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -71,6 +80,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     header: {
+        marginTop: 50,
         fontSize: 20,
         fontWeight: "bold",
         marginBottom: 20,

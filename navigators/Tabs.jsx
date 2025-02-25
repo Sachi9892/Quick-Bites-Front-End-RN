@@ -6,9 +6,9 @@ import Home from "../screens/tabs/Home";
 import ProfileDrawerNavigation from "./ProfileNavigator";
 import SearchNavigator from "./SearchNavigator";
 import CartPage from "../screens/tabs/CartPage";
+import CartStackNavigator from "./CartStackNavigator";
 import { fetchCart } from "../services/CartService";
-import { CartContext } from "../context/CartContext";
-import { Badge } from 'react-native-elements';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -73,7 +73,11 @@ export default function TabNavigator() {
         >
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
             <Tab.Screen name="Search" component={SearchNavigator} options={{ headerShown: false }} />
-            <Tab.Screen name="Cart" component={CartPage} />
+            <Tab.Screen
+                name="Cart"
+                component={CartStackNavigator}
+                options={{ headerShown: false }}  // Add this to hide double headers
+            />
             <Tab.Screen name="Profile" component={ProfileDrawerNavigation} />
         </Tab.Navigator>
     );

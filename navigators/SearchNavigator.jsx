@@ -4,11 +4,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { createStackNavigator } from "@react-navigation/stack";
 import SearchBoxWithAutoComplete from "../screens/tabs/SearchWithAutoComplete";
 import SearchResultPage from "../screens/tabs/SearchResultPage";
-import CartPage from "../screens/tabs/CartPage";
+import CartStackNavigator from "./CartStackNavigator";
 
 const Stack = createStackNavigator();
 
 const SearchNavigator = () => {
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -29,11 +30,10 @@ const SearchNavigator = () => {
                     ),
                 })}
             />
-            <Stack.Screen
-                name="CartPage"
-                component={CartPage}
-                options={{ title: "Cart" }}
-            />
+
+            <Stack.Screen name="Cart" component={CartStackNavigator} />
+
+
         </Stack.Navigator>
     );
 };
