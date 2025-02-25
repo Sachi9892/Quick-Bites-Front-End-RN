@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../constant/appconstant";
 
 export const useSearch = () => {
     const [query, setQuery] = useState("");
@@ -8,7 +9,7 @@ export const useSearch = () => {
     const fetchSuggestions = async (text) => {
         try {
             const response = await axios.get(
-                `http://192.168.1.102:8081/user/search?query=${text}`
+                `${BASE_URL}/search?query=${text}`
             );
             setSuggestions(response.data.slice(0, 8));
         } catch (error) {

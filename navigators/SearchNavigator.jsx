@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { createStackNavigator } from "@react-navigation/stack";
 import SearchBoxWithAutoComplete from "../screens/tabs/SearchWithAutoComplete";
 import SearchResultPage from "../screens/tabs/SearchResultPage";
+import CartPage from "../screens/tabs/CartPage";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ const SearchNavigator = () => {
                         </TouchableOpacity>
                     ),
                 })}
+            />
+            <Stack.Screen
+                name="CartPage"
+                component={CartPage}
+                options={{ title: "Cart" }}
             />
         </Stack.Navigator>
     );

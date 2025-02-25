@@ -17,6 +17,7 @@ export default function Home({ navigation }) {
     const nearbyRestaurants = [
         { id: "1", name: "Tadka Ustad", rating: 4.5, cost: 200, image: require("../../assets/images/pizza-hut.jpeg") },
         { id: "2", name: "Food adda", rating: 4.2, cost: 150, image: require("../../assets/images/dominos.png") },
+        { id: "3", name: "Bandra Bistro", rating: 4.2, cost: 150, image: require("../../assets/images/bandra-bistro.png") },
     ];
 
 
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
     },
     header: {
-        marginVertical: 20,
+        marginVertical: 25,
         alignItems: "left",
     },
     title: {
